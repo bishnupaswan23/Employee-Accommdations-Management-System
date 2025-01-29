@@ -110,7 +110,22 @@
         <input type="password" id="password" placeholder="Password">
         <button class="btn" onclick="login()">Login</button>
     </div>
-
+    <style>
+      /* Other styles remain the same */
+  
+      /* Specific styles for the login input fields */
+      .login-container input[type="text"], 
+      .login-container input[type="password"] {
+          width: 100%;  /* Ensure both input fields span the entire width */
+          padding: 12px;
+          margin: 8px 0;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          background: #f4f4f4;
+          font-size: 14px;
+      }
+  </style>
+  
     <script>
         let employees = [];
 
