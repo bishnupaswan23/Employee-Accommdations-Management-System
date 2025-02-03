@@ -1,0 +1,128 @@
+/* General Styles */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+body { 
+    background: linear-gradient(120deg, #1E2A38, #273747); 
+    color: white; 
+    display: flex; 
+    height: 100vh; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+/* Login Page */
+.login-container { 
+    display: block; 
+    width: 400px; 
+    background: #2D3E50; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    text-align: center;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.login-container input:focus {
+    outline: 2px solid #FFD700;
+}
+
+/* Buttons */
+.btn { 
+    width: 100%; 
+    padding: 15px; 
+    background: #FFD700; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    font-weight: bold;
+    cursor: pointer; 
+    transition: 0.3s;
+}
+.btn:hover { 
+    background: #FFC107; 
+    transform: scale(1.05);
+}
+
+/* Dashboard */
+.dashboard-container {
+    width: 90%;
+    max-width: 900px;
+    background: #2D3E50;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.dashboard-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+.dashboard-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Table Design */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 15px; 
+    background: white; 
+    color: black; 
+    border-radius: 10px;
+    overflow: hidden;
+}
+th, td { 
+    padding: 12px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+}
+th { 
+    background: #007bff; 
+    color: white; 
+    text-align: center;
+}
+tr:nth-child(even) { 
+    background: #f2f2f2; 
+}
+tr:hover { 
+    background: #ddd; 
+}
+
+/* Employee Photo Styling */
+td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .dashboard-container {
+        width: 100%;
+        padding: 15px;
+    }
+    table, th, td {
+        font-size: 14px;
+    }
+}

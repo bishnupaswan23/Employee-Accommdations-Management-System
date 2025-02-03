@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div class="login-container" id="loginPage">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn" onclick="login()">Login</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard-container" id="dashboardPage">
+        <h2>Employee Management</h2>
+        <button class="btn" onclick="showSection('addEmployee')">Add Employee</button>
+        <button class="btn" onclick="showSection('viewEmployees')">View Employees</button>
+        <button class="btn" style="background: red;" onclick="logout()">Logout</button>
+
+        <!-- Add Employee -->
+        <div id="addEmployee" style="display: block;">
+            <h3>Add Employee</h3>
+            <input type="file" id="empPhoto" accept="image/*">
+            <input type="text" id="empName" placeholder="Employee Name" required>
+            <input type="text" id="empNumber" placeholder="Employee Number" required>
+            <input type="text" id="empQid" placeholder="QID">
+            <input type="text" id="empPhone" placeholder="Phone Number">
+            <input type="text" id="empPosition" placeholder="Position">
+            <button class="btn" onclick="addEmployee()">Add Employee</button>
+        </div>
+
+        <!-- View Employees -->
+        <div id="viewEmployees" style="display: none;">
+            <h3>Employee List</h3>
+            <input type="text" id="searchInput" placeholder="Search Employee..." onkeyup="searchEmployee()">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>QID</th>
+                        <th>Phone</th>
+                        <th>Position</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>
