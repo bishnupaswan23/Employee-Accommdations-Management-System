@@ -21,17 +21,22 @@
         <h2>Employee Management</h2>
         <button class="btn" onclick="showSection('addEmployee')">Add Employee</button>
         <button class="btn" onclick="showSection('viewEmployees')">View Employees</button>
-        <button class="btn" style="background: red;" onclick="logout()">Logout</button>
+        <button class="btn logout-btn" onclick="logout()">Logout</button>
 
         <!-- Add Employee -->
         <div id="addEmployee" style="display: block;">
             <h3>Add Employee</h3>
             <input type="file" id="empPhoto" accept="image/*">
-            <input type="text" id="empName" placeholder="Employee Name" required>
             <input type="text" id="empNumber" placeholder="Employee Number" required>
-            <input type="text" id="empQid" placeholder="QID">
-            <input type="text" id="empPhone" placeholder="Phone Number">
+            <input type="text" id="empName" placeholder="Employee Name" required>
             <input type="text" id="empPosition" placeholder="Position">
+            <input type="text" id="empQid" placeholder="QID">
+            <input type="text" id="empJoiningDate" placeholder="Joining Date">
+            <input type="text" id="empAccommodation" placeholder="Accommodation">
+            <input type="text" id="empCampBossName" placeholder="Camp Boss Name">
+            <input type="text" id="empRoomNumber" placeholder="Room Number">
+            <input type="text" id="empPhone" placeholder="Phone Number">
+            <input type="text" id="empTaskGroup" placeholder="Task Group">
             <button class="btn" onclick="addEmployee()">Add Employee</button>
         </div>
 
@@ -43,11 +48,16 @@
                 <thead>
                     <tr>
                         <th>Photo</th>
-                        <th>Name</th>
-                        <th>Number</th>
-                        <th>QID</th>
-                        <th>Phone</th>
+                        <th>Employee Number</th>
+                        <th>Employee Name</th>
                         <th>Position</th>
+                        <th>QID</th>
+                        <th>Joining Date</th>
+                        <th>Accommodation</th>
+                        <th>Camp Boss Name</th>
+                        <th>Room Number</th>
+                        <th>Phone Number</th>
+                        <th>Task Group</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
