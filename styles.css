@@ -56,6 +56,9 @@ body {
     background: #FFC107; 
     transform: scale(1.05);
 }
+.logout-btn {
+    background: red;
+}
 
 /* Dashboard */
 .dashboard-container {
@@ -64,15 +67,15 @@ body {
     background: #2D3E50;
     padding: 25px;
     border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .dashboard-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     color: #FFD700;
 }
 .dashboard-container input {
-    width: 100%;
+    width: 20%;
     padding: 12px;
     margin: 8px 0;
     border: none;
@@ -87,13 +90,13 @@ table {
     margin-top: 15px; 
     background: white; 
     color: black; 
-    border-radius: 10px;
+    border-radius: 40px;
     overflow: hidden;
 }
 th, td { 
-    padding: 12px; 
-    text-align: left; 
-    border-bottom: 1px solid #ddd; 
+    padding: 15px; 
+    text-align: center; 
+    border-bottom: 5px solid #ddd; 
 }
 th { 
     background: #007bff; 
@@ -118,7 +121,7 @@ td img {
 
 /* Mobile Responsive */
 @media (max-width: 600px) {
-    .dashboard-container {
+    .dashboard-container { 
         width: 100%;
         padding: 15px;
     }
