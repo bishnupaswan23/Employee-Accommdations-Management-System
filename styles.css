@@ -1,115 +1,126 @@
 /* General Styles */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Poppins', sans-serif; 
-}
-body { 
-    background: linear-gradient(120deg, #1E2A38, #273747); 
-    color: white; 
-    display: flex; 
-    height: 100vh; 
-    justify-content: center; 
-    align-items: center; 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 /* Login Page */
-.login-container { 
-    display: block; 
-    width: 400px; 
-    background: #2D3E50; 
-    padding: 30px; 
-    border-radius: 15px; 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-.login-container h2 {
-    margin-bottom: 20px;
-    color: #FFD700;
-}
-.login-container input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-}
-.login-container input:focus {
-    outline: 2px solid #FFD700;
+    border-radius: 5px;
 }
 
-/* Buttons */
-.btn { 
-    width: 100%; 
-    padding: 15px; 
-    background: #FFD700; 
-    border: none; 
-    border-radius: 10px; 
-    font-size: 16px; 
-    font-weight: bold;
-    cursor: pointer; 
-    transition: 0.3s;
+.login-container h2 {
+    margin-bottom: 20px;
 }
-.btn:hover { 
-    background: #FFC107; 
-    transform: scale(1.05);
+
+.login-container input {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
-.logout-btn {
-    background: red;
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login-container button:hover {
+    background: #0056b3;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
 }
 
 /* Dashboard */
 .dashboard-container {
     width: 90%;
-    max-width: 900px;
-    background: #2D3E50;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
-.dashboard-container h2 {
+
+.dashboard-container h1 {
     text-align: center;
-    margin-bottom: 0px;
-    color: #FFD700;
 }
-.dashboard-container input {
-    width: 20%;
-    padding: 12px;
-    margin: 8px 0;
+
+button {
+    padding: 10px 15px;
+    margin: 10px;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
 }
 
-/* Table Design */
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 15px; 
-    background: white; 
-    color: black; 
-    border-radius: 40px;
-    overflow: hidden;
-}
-th, td { 
-    padding: 15px; 
-    text-align: center; 
-    border-bottom: 5px solid #ddd; 
-}
-th { 
-    background: #007bff; 
-    color: white; 
-    text-align: center;
-}
-tr:nth-child(even) { 
-    background: #f2f2f2; 
-}
-tr:hover { 
-    background: #ddd; 
+button:hover {
+    background: #0056b3;
 }
 
+#search {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Employee Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+/* Fix: Add padding to table buttons */
+td button {
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background: darkred;
+}
+
+
+/* Employee Images */
 td img {
     width: 100px; 
     height: 100px; /* Adjust height */
@@ -121,13 +132,20 @@ td img {
 }
 
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .dashboard-container { 
+
+
+
+/* Form */
+input[type="text"], input[type="date"], input[type="file"] {
+    width: calc(33% - 10px);
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    input[type="text"], input[type="date"], input[type="file"] {
         width: 100%;
-        padding: 15px;
-    }
-    table, th, td {
-        font-size: 14px;
     }
 }
