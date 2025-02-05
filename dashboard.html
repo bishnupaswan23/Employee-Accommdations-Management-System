@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<body>
+    <div class="dashboard-container">
+        <h1>Employee Management System</h1>
+        <button onclick="logout()">Logout</button>
+        <button onclick="downloadCSV()">Download CSV</button>
+        <input type="file" id="excelFile" accept=".xls,.xlsx">
+        <button onclick="uploadExcel()">Upload Excel</button>
+
+        
+        <input type="text" id="search" placeholder="Search Employee..." onkeyup="searchEmployee()">
+        
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Employee Number</th>
+                    <th>Name</th>
+                    <th>Nationality</th>
+                    <th>QID</th>
+                    <th>Contact Number</th>
+                    <th>Room Details</th>
+                    <th>Status</th>
+                    <th>Accommodation</th>
+                    <th>Position</th>
+                    <th>Work Place</th>
+                    <th>Camp Boss</th>
+                    <th>Joining Date</th>
+                    <th>Site Name</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeList"></tbody>
+        </table>
+
+        <h3>Add or Edit Employee</h3>
+        <input type="text" id="emoloyeenumber" placeholder="Employee Number">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="nationality" placeholder="Nationality">
+        <input type="text" id="qid" placeholder="QID">
+        <input type="text" id="contact" placeholder="Contact Number">
+        <input type="text" id="room" placeholder="Room Details">
+        <input type="text" id="status" placeholder="Status">
+        <input type="text" id="accommodation" placeholder="Accommodation">
+        <input type="text" id="position" placeholder="Position">
+        <input type="text" id="workplace" placeholder="Work Place">
+        <input type="text" id="campBoss" placeholder="Camp Boss">
+        <input type="date" id="joiningDate">
+        <input type="text" id="siteName" placeholder="Site Name">
+        <input type="file" id="photo">
+        
+        <button onclick="addOrEditEmployee()">Save Employee</button>
+    </div>
+
+    <script src="test.js"></script>
+
+    <script>
+        let editingRow = null;
+
+        function addOrEditEmployee() {
+            // Get the values from input fields
+            const empNo = document.getElementById('emoloyeenumber').value;
+            const name = document.getElementById('name').value;
+            const nationality = document.getElementById('nationality').value;
+            const qid = document.getElementById('qid').value;
+            const contact = document.getElementById('contact').value;
+            const room = document.getElementById('room').value;
+            const status = document.getElementById('status').value;
+            const accommodation = document.getElementById('accommodation').value;
+            const position = document.getElementById('position').value;
+            const workplace = document.getElementById('workplace').value;
+            const campBoss = document.getElementById('campBoss').value;
+            const joiningDate = document.getElementById('joiningDate').value;
+            const siteName = document.getElementById('siteName').value;
+            const photoFile = document.getElementById('photo').files[0];
+
+            // Create a FileReader to read the image
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const photoDataUrl = event.target.result;
+
+                // If we are editing, replace the row with updated data
+                if (editingRow) {
+                    editingRow.cells[1].textContent = empNo;
+                    editingRow.cells[2].textContent = name;
+                    editingRow.cells[3].textContent = nationality;
+                    editingRow.cells[4].textContent = qid;
+                    editingRow.cells[5].textContent = contact;
+                    editingRow.cells[6].textContent = room;
+                    editingRow.cells[7].textContent = status;
+                    editingRow.cells[8].textContent = accommodation;
+                    editingRow.cells[9].textContent = position;
+                    editingRow.cells[10].textContent = workplace;
+                    editingRow.cells[11].textContent = campBoss;
+                    editingRow.cells[12].textContent = joiningDate;
+                    editingRow.cells[13].textContent = siteName;
+                    editingRow.cells[14].innerHTML = `<img src="${photoDataUrl}" alt="Employee Photo" width="50" height="50">`;
+                } else {
+                    // Add a new employee if no row is being edited
+                    const table = document.getElementById('employeeList');
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td>${table.rows.length}</td>
+                        <td>${empNo}</td>
+                        <td>${name}</td>
+                        <td>${nationality}</td>
+                        <td>${qid}</td>
+                        <td>${contact}</td>
+                        <td>${room}</td>
+                        <td>${status}</td>
+                        <td>${accommodation}</td>
+                        <td>${position}</td>
+                        <td>${workplace}</td>
+                        <td>${campBoss}</td>
+                        <td>${joiningDate}</td>
+                        <td>${siteName}</td>
+                        <td><img src="${photoDataUrl}" alt="Employee Photo" width="50" height="50"></td>
+                        <td><button onclick="editEmployee(this)">Edit</button> <button onclick="deleteEmployee(this)">Delete</button></td>
+                    `;
+                }
+
+                // Clear the input fields after saving
+                clearInputFields();
+            };
+
+            // Read the photo file as Data URL
+            if (photoFile) {
+                reader.readAsDataURL(photoFile);
+            }
+        }
+
+        function editEmployee(button) {
+            editingRow = button.parentElement.parentElement;
+
+            // Populate the form with the current data
+            document.getElementById('emoloyeenumber').value = editingRow.cells[1].textContent;
+            document.getElementById('name').value = editingRow.cells[2].textContent;
+            document.getElementById('nationality').value = editingRow.cells[3].textContent;
+            document.getElementById('qid').value = editingRow.cells[4].textContent;
+            document.getElementById('contact').value = editingRow.cells[5].textContent;
+            document.getElementById('room').value = editingRow.cells[6].textContent;
+            document.getElementById('status').value = editingRow.cells[7].textContent;
+            document.getElementById('accommodation').value = editingRow.cells[8].textContent;
+            document.getElementById('position').value = editingRow.cells[9].textContent;
+            document.getElementById('workplace').value = editingRow.cells[10].textContent;
+            document.getElementById('campBoss').value = editingRow.cells[11].textContent;
+            document.getElementById('joiningDate').value = editingRow.cells[12].textContent;
+            document.getElementById('siteName').value = editingRow.cells[13].textContent;
+        }
+
+        function deleteEmployee(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+
+        function clearInputFields() {
+            document.getElementById('emoloyeenumber').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('nationality').value = '';
+            document.getElementById('qid').value = '';
+            document.getElementById('contact').value = '';
+            document.getElementById('room').value = '';
+            document.getElementById('status').value = '';
+            document.getElementById('accommodation').value = '';
+            document.getElementById('position').value = '';
+            document.getElementById('workplace').value = '';
+            document.getElementById('campBoss').value = '';
+            document.getElementById('joiningDate').value = '';
+            document.getElementById('siteName').value = '';
+            document.getElementById('photo').value = '';
+        }
+
+        function searchEmployee() {
+            // Implement search functionality as needed
+        }
+
+        function logout() {
+            // Implement logout functionality as needed
+        }
+
+        function downloadCSV() {
+            // Implement CSV download functionality as needed
+        }
+    </script>
+</body>
+</html>
+<script src="test.js"></script>
