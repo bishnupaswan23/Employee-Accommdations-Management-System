@@ -78,7 +78,7 @@ body {
   }
   
   header .logo img {
-    width: px;
+    width:100 px;
     height:100px;
     margin-right: 10px;
   }
@@ -194,7 +194,7 @@ body {
   }
   
   table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
   }
   
