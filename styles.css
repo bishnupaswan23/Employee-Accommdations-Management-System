@@ -1,1 +1,266 @@
-
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f7f9;
+    color: #333;
+  }
+  
+  /* Login Page */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+  }
+  
+  .login-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-box input:focus {
+    border-color: #007bff;
+  }
+  
+  .login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-box button:hover {
+    background: #0056b3;
+  }
+  
+  /* Dashboard Header */
+  header {
+    background: #0525b6;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .logo img {
+    width: px;
+    height:100px;
+    margin-right: 10px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 40px;
+    color: #e9af0f;
+  }
+  
+  header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  header #logoutBtn {
+    background: #ff4d4d;
+    color: #06061d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  header #logoutBtn:hover {
+    background: #cc0000;
+  }
+  
+  .weather-report {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Scrolling Text */
+  .scrolling-text {
+    background: linear-gradient(135deg, #007bff, #b3a100);
+    color: #140e02;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(216, 9, 9, 0.1);
+  }
+  
+  /* Actions */
+  .actions {
+    margin: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .actions button {
+    padding: 12px 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .actions button:hover {
+    background: #218838;
+  }
+  
+  .actions input[type="file"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  #searchEmployee {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  #searchEmployee:focus {
+    border-color: #007bff;
+  }
+  
+  #searchBtn {
+    padding: 1px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #searchBtn:hover {
+    background: #0056b3;
+  }
+  
+  /* Employee Table */
+  .table-container {
+    margin: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  th {
+    background: #007bff;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  td img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  td button {
+    padding: 8px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  td button:nth-child(1) {
+    background: #ffc107;
+    color: #333;
+  }
+  
+  td button:nth-child(1):hover {
+    background: #e0a800;
+  }
+  
+  td button:nth-child(2) {
+    background: #dc3545;
+    color: #fff;
+  }
+  
+  td button:nth-child(2):hover {
+    background: #c82333;
+  }
+  
+  .whatsapp-btn {
+    background: #25d366;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .whatsapp-btn:hover {
+    background: #128c7e;
+  }
