@@ -121,8 +121,8 @@ body {
   .scrolling-text {
     background: linear-gradient(135deg, #007bff, #b3a100);
     color: #140e02;
-    padding: 10px;
-    font-size: 30px;
+    padding: 1px;
+    font-size: 5px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(216, 9, 9, 0.1);
   }
