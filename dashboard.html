@@ -29,7 +29,102 @@
 Welcome to the Employee Management System! This is my first web project. I am a beginner learning on my own, and I aspire to become a web developer. I'm not a professional yet, so if you notice any bugs, please let me know
       </marquee>
     </div>
+<input type="text" id="flightDate" placeholder="DD-MM-YYYY">
+<input type="text" id="flightTime" placeholder="HH:mm">
+<button onclick="processSchedule()">Calculate</button>
 
+<div id="convertedTime"></div>
+<div id="reminderTime"></div>
+
+<script>
+function processSchedule() {
+    const flightDate = document.getElementById('flightDate').value;
+    const flightTime = document.getElementById('flightTime').value;
+    
+    // Convert to 12-hour format
+    const twelveHour = convertTo12Hour(flightTime);
+    document.getElementById('convertedTime').innerHTML = 
+        `Flight Time: ${twelveHour}`;
+    
+    // Calculate reminder
+    const reminder = calculateReminder(flightDate, flightTime);
+    document.getElementById('reminderTime').innerHTML = 
+        `Reminder at: ${reminder}`;
+}
+</script>
+<script>
+function convertTo12Hour(time24) {
+    const [hours, minutes] = time24.split(':').map(Number);
+    const period = hours >= 12 ? 'PM' : 'AM';
+    const twelveHour = hours % 12 || 12; // Convert 0 to 12
+    return `${twelveHour}:${minutes.toString().padStart(2, '0')} ${period}`;
+}
+
+function calculateReminder(flightDate, flightTime) {
+    // Parse date in DD-MM-YYYY format
+    const [day, month, year] = flightDate.split('-').map(Number);
+    const [hours, minutes] = flightTime.split(':').map(Number);
+    
+    // Create Date object (months are 0-indexed)
+    const departureDate = new Date(year, month - 1, day, hours, minutes);
+    
+    // Subtract 4 hours
+    const reminderDate = new Date(departureDate.getTime() - (4 * 60 * 60 * 1000));
+    
+    // Format reminder date
+    const formattedDate = `${String(reminderDate.getDate()).padStart(2, '0')}-${String(reminderDate.getMonth() + 1).padStart(2, '0')}-${reminderDate.getFullYear()}`;
+    
+    // Format reminder time
+    let reminderHours = reminderDate.getHours();
+    const reminderMinutes = String(reminderDate.getMinutes()).padStart(2, '0');
+    const period = reminderHours >= 12 ? 'PM' : 'AM';
+    reminderHours = reminderHours % 12 || 12;
+    
+    return `${reminderHours}:${reminderMinutes} ${period}, ${formattedDate}`;
+}
+
+// Example usage with your data
+const flightDate = '20-02-2025';
+const flightTime = '23:12';
+
+// Convert flight time to 12-hour format
+const twelveHourTime = convertTo12Hour(flightTime);
+console.log('Converted Time:', twelveHourTime); // Output: 11:12 PM
+
+// Calculate reminder time
+const reminder = calculateReminder(flightDate, flightTime);
+console.log('Reminder Time:', reminder); // Output: 7:12 PM, 20-02-2025
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
     <!-- Actions -->
     <div class="actions">
       <button id="addEmployeeBtn">Add Employee</button>
